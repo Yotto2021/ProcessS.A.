@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Administrador - Panel</title>
+    <link rel="stylesheet" href="../static/CSS/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/CSS/Style.css">
+    
+</head>
+<body>
+
+    <header class="Header">
+
+        <div class="Contenedor">
+            <div class="Barra">
+                <a class="Logo" href="{% url 'home' %}">
+                    <img class="Logo__Tipo Centrar-Texto" src="../static/IMG/Logo.png" alt="">
+                    <h1 class="Logo__Nombre Centrar-Texto ">Process S.A.</h1>
+                </a>
+    
+                <nav class="Navegacion">
+                    <a href="{% url 'login' %}" class="Navegacion_Enlace">Iniciar Sesión</a>
+                    <a href="{% url 'home' %}" class="Navegacion_Enlace">Inicio</a>
+                    <a href="{% url 'administrador' %}" class="Navegacion_Enlace">Administrador</a>
+                    <a href="{% url 'funcionario' %}" class="Navegacion_Enlace">Funcionario</a>
+                    <a href="Diseñador.html" class="Navegacion_Enlace">Diseñador</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="Header__Texto">
+            <h2 class="No-Margin">Administrador</h2>
+        </div>
+    </header>
+
+    <main class="Contenedor">
+        <h3 class="Centrar-Texto">Panel de Control</h3>
+        <div>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                        <th>RUT</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Genero</th>
+                        <th>Contrato</th>
+                        <th>Rol</th>
+                        <th>Unidad Interna</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for Usuarios in Usuarios %}
+                        <tr>
+                            <td>{{Usuarios.nombre_full}}</td>
+                            <td>{{Usuarios.rut}}</td>
+                            <td>{{Usuarios.username}}</td>
+                            <td>{{Usuarios.password}}</td>
+                            <td>{{Usuarios.fec_nac}}</td>
+                            <td>{{Usuarios.genero}}</td>
+                            <td>{{Usuarios.Contrato}}</td>
+                            <td>{{Usuarios.Rol}}</td>
+                            <td>{{Usuarios.Unidad_Interna}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="tabla_mobile">
+                <div class="fila">
+                    {% for Usuarios in Usuarios %}
+                        <div class="columna">
+                            <div class="header1">Nombres</div>
+                            <div class="contenido">{{Usuarios.nombre_full}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">RUT</div>
+                            <div class="contenido">{{Usuarios.rut}}</div>
+                        </div>
+                        
+                        <div class="columna">
+                            <div class="header1">Usuario</div>
+                            <div class="contenido">{{Usuarios.username}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">Contraseña</div>
+                            <div class="contenido">{{Usuarios.password}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">Fecha de Nacimiento</div>
+                            <div class="contenido">{{Usuarios.fec_nac}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">Genero</div>
+                            <div class="contenido">{{Usuarios.genero}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">Rol</div>
+                            <div class="contenido">{{Usuarios.Rol}}</div>
+                        </div>
+
+                        <div class="columna">
+                            <div class="header1">Unidad Interna</div>
+                            <div class="contenido">{{Usuarios.Unidad_Interna}}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="Campo">
+                <input type="submit" value="Calcular Porcentaje de Avance" class="Boton Boton--Primario">
+                <input type="submit" value="Calcular Duración de Tareas" class="Boton Boton--Primario">
+                <a href="administrador.html" class="Boton Boton--Primario">Crear Usuario</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="Footer">
+        <div class="Contendor">
+            <div class="Contenedor">
+                <div class="Barra">
+                    <a class="Logo" href="{% url 'home' %}">
+                        <img class="Logo__Tipo Centrar-Texto" src="../static/IMG/Logo.png" alt="">
+                        <h1 class="Logo__Nombre Centrar-Texto ">Process S.A.</h1>
+                    </a>
+    
+                    <nav class="Navegacion">
+                        <a href="{% url 'home' %}" class="Navegacion_Enlace">Inicio</a>
+                        <a href="{% url 'administrador' %}" class="Navegacion_Enlace">Administrador</a>
+                        <a href="{% url 'funcionario' %}" class="Navegacion_Enlace">Funcionario</a>
+                        <a href="Diseñador.html" class="Navegacion_Enlace">Diseñador</a>
+                    </nav>
+                </div>
+            </div>     
+        </div>
+    </footer>
+    
+</body>
+</html>

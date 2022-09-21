@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Administrador</title>
+    <link rel="stylesheet" href="../static/CSS/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/CSS/Style.css">
+</head>
+<body>
+
+    <header class="Header">
+
+        <div class="Contenedor">
+            <div class="Barra">
+                <a class="Logo" href="{% url 'home' %}">
+                    <img class="Logo__Tipo Centrar-Texto" src="../static/IMG/Logo.png" alt="">
+                    <h1 class="Logo__Nombre Centrar-Texto ">Process S.A.</h1>
+                </a>
+    
+                <nav class="Navegacion">
+                    <a href="{% url 'login' %}" class="Navegacion_Enlace">Iniciar Sesión</a>
+                    <a href="{% url 'home' %}" class="Navegacion_Enlace">Inicio</a>
+                    <a href="{% url 'administrador' %}" class="Navegacion_Enlace">Administrador</a>
+                    <a href="{% url 'funcionario' %}" class="Navegacion_Enlace">Funcionario</a>
+                    <a href="Diseñador.html" class="Navegacion_Enlace">Diseñador</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="Header__Texto">
+            <h2 class="No-Margin">Administrador</h2>
+        </div>
+    </header>
+
+    <main class="Contenedor">
+        <h3 class="Centrar-Texto">Crear Usuarios</h3>
+        <div class="Administrador"></div>
+
+        <form action="" class="Crear-Usuario" method="post">
+            
+            <div class="Campo">
+                <div class="Campo_Label">
+                    {% csrf_token %}
+
+                    {{ form }}
+                </div>
+            </div>
+
+            <div class="Campo">
+                <input type="submit" value="Añadir Usuario" class="Boton Boton--Primario">
+                <input type="submit" value="Cancelar" class="Boton Boton--Primario">
+                <a href="{% url 'PanelControl' %}" class="Boton Boton--Primario">Panel de Control</a>
+            </div>
+        </form>
+
+        {{ Usuario }}
+    </main>
+
+    <footer class="Footer">
+        <div class="Contendor">
+            <div class="Contenedor">
+                <div class="Barra">
+                    <a class="Logo" href="{% url 'home' %}">
+                        <img class="Logo__Tipo Centrar-Texto" src="../static/IMG/Logo.png" alt="">
+                        <h1 class="Logo__Nombre Centrar-Texto ">Process S.A.</h1>
+                    </a>
+    
+                    <nav class="Navegacion">
+                        <a href="{% url 'home' %}" class="Navegacion_Enlace">Inicio</a>
+                        <a href="{% url 'administrador' %}" class="Navegacion_Enlace">Administrador</a>
+                        <a href="{% url 'funcionario' %}" class="Navegacion_Enlace">Funcionario</a>
+                        <a href="Diseñador.html" class="Navegacion_Enlace">Diseñador</a>
+                    </nav>
+                </div>
+            </div>     
+        </div>
+    </footer>
+    
+</body>
+</html>
